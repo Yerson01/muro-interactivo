@@ -1,0 +1,90 @@
+.post {
+    box-shadow: 1px 1px 5px gray;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
+
+.post .info h4 {
+    font-size: 2rem;
+    font-weight: lighter;
+    margin-bottom: .2rem;
+}
+
+.post:last-of-type {
+    margin-bottom: 0;
+}
+
+.card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-head .image {
+    flex: 0 0 10%;
+}
+
+.card-head .info {
+    flex: 0 0 calc(90% - 2rem);
+}
+
+.card-head img {
+    border-radius: 20rem;
+}
+
+.card-head .info span {
+    font-size: 1.2rem;
+    background: #0b64a0;
+    color: white;
+    border-radius: 10rem;
+    padding: .3rem 1rem;
+}
+
+.body-flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0 1rem 0;
+}
+
+.quote {
+    color: gray;
+    padding-left: 4rem;
+    flex: 0 0 10%;
+}
+
+.body-flex .body {
+    flex: 0 0 calc(90% - 2rem);
+    margin: 0;
+}
+
+.card-body p {
+    margin: 0;
+}
+
+.card-footer {
+    font-family: var(--poppins);
+    padding: 1rem 0;
+    max-width: 28%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-footer i {
+    margin-right: .3rem;
+}
+
+.hearts {
+    color: #c0392b;
+}
+
+.dislikes {
+    color: #7f8c8d;
+}
+
+.comments {
+    color: #2c3e50;
+}
+
+.hearts:hover, .dislikes:hover, .comments:hover {
+    cursor: pointer;
+}

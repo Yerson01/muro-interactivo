@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route  } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Navbar from './components/layouts/Navbar';
+import Posts from './components/posts/Posts';
+import CreatePost from './components/posts/CreatePost';
+import Login from './components/auth/Login';
+import SignUp from './components/auth/SignUp';
+import UserProfile from './components/auth/UserProfle';
+
+//styles
+import './css/main.css';
+
+import { UserIsAuthenticated, UserIsNotAuthenticated } from './helpers/auth';
+ 
+class App extends Component {
+
+   render() { 
+      return (  
+         <Router>
+            <Navbar />
+
+            <div className="container">
+               
+               <main className="main-content">
+                  <Switch> 
+                     <Route exact path='/' component={Posts} />
+                     <Route exact path='/posts/new' component={UserIsAuthenticated(CreatePost)} />
+                  </Switch>
+                  
+                  <UserProfile />
+               </main>
+               
+                  <Switch>
+                     <Route exact path="/login" component={UserIsNotAuthenticated(Login)} />
+                     <Route exact path="/signup" component={UserIsNotAuthenticated(SignUp)} />
+                  </Switch>
+                  
+             
+               
+            </div>
+         </Router>
+      );
+   }
 }
 
 export default App;
